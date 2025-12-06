@@ -1,11 +1,47 @@
+<!-- Creo el html con fondo oscuro y estilo moderno con Tailwind CSS -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TechLab Proyecto Final</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Hola desde index.html</h1>
+<body class="min-h-screen bg-gray-950 text-white flex flex-col items-center justify-center p-8">
+    <div class="text-center max-w-3xl">
+        <!-- Título principal con degradado -->
+        <h1 class="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            Bienvenido a TechLab
+        </h1>
+        
+        <!-- Subtítulo -->
+        <p class="text-xl text-gray-400 mb-10">
+            Este es el punto de entrada de la aplicación backend con Node.js y Express.
+        </p>
+        
+        <!-- Botón estilizado -->
+        <a href="/users" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-4 rounded-lg shadow-lg shadow-purple-500/30 transition-all duration-300 hover:scale-105 text-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            Ver Nuestro Equipo
+        </a>
+        
+        <!-- Decoración adicional (opcional) -->
+        <div class="mt-16 grid grid-cols-3 gap-6 text-center">
+            <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                <div class="text-3xl font-bold text-purple-400 mb-2">Node.js</div>
+                <p class="text-sm text-gray-400">Backend potente</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                <div class="text-3xl font-bold text-blue-400 mb-2">Express</div>
+                <p class="text-sm text-gray-400">Framework rápido</p>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                <div class="text-3xl font-bold text-green-400 mb-2">REST API</div>
+                <p class="text-sm text-gray-400">Arquitectura moderna</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

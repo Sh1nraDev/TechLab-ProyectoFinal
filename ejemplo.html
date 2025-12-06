@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJEMPLO CORS</title>
+</head>
+<body>
+    <script>
+        const product = {
+            name: "new product",
+            price: 29.99,
+            cantidad: 320
+        };
+        fetch('http://localhost:3000/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        }).then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.error('Error:', err));
+        
+    </script>
+</body>
+</html>
