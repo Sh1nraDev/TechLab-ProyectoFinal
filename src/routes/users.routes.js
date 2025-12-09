@@ -1,6 +1,6 @@
 // Creo la ruta
 import { Router } from 'express'; // Importo el Router de express
-import { getUsers, getUserById } from '../controller/users.controller.js'; // Importo el controlador para obtener usuarios
+import { getAllUsers, getUserById, createUserController} from '../controller/users.controller.js'; // Importo el controlador para obtener usuarios
 
 const router = Router();
 
@@ -10,7 +10,7 @@ const router = Router();
 // router.get('/') ⬅️ es la ruta base: /users o /usuarios 
 
 // Ruta GET para obtener todos los usuarios
-router.get('/', getUsers);
+router.get('/', getAllUsers); // Defino una ruta GET para obtener todos los usuarios
 /*
   // Utilizo tailwindcss para dar estilos a las tarjetas:
   const tarjetaHTML = users.map(user => `
@@ -98,19 +98,13 @@ router.get('/', getUsers);
   `);
 });
 */
-
-router.get('/:id', getUserById);
-
-// Defino una ruta POST para crear un nuevo usuario
-router.post('/', (req, res) => {
-  res.send('<h2>Crear un nuevo usuario</h2>');
-});
-
-router.put('/:id', (req, res) => {
+router.get('/:id', getUserById); // Defino una ruta GET para obtener un usuario por ID
+router.post('/', createUserController); // Defino una ruta POST para crear un nuevo usuario
+router.put('/:id', (req, res) => { // Defino una ruta PUT para actualizar un usuario por ID
   res.send(`<h2>Actualizar el usuario con ID ${req.params.id}</h2>`);
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res) => { // Defino una ruta DELETE para eliminar un usuario por ID
   res.send(`<h2>Eliminar el usuario con ID ${req.params.id}</h2>`);
 });
 

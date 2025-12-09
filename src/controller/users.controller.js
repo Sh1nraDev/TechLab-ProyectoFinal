@@ -1,51 +1,48 @@
-// Creo usuarios  ficticios:
-const users = [
-    {
-      id: 1,
-      name: 'Alice',
-      email: 'alice@example.com',
-      rol: 'Frontend Developer',
-      ubicacion: 'Buenos Aires, Argentina',
-      experiencia: '5 Años de experiencia en React y Tailwind CSS'
-    },
-    {
-      id: 2,
-      name: 'Bob',
-      email: 'bob@example.com',
-      rol: 'Backend Developer',
-      ubicacion: 'Rosario, Argentina',
-      experiencia: '3 Años de experiencia en Node.js y Express'
-    },
-    {
-      id: 3,
-      name: 'Charlie',
-      email: 'charlie@example.com',
-      rol: 'Full Stack Developer',
-      ubicacion: 'Córdoba, Argentina',
-      experiencia: '2 Años de experiencia en React y Node.js'
-    },
-    {
-      id: 4,
-      name: 'David',
-      email: 'david@example.com',
-      rol: 'DevOps Engineer',
-      ubicacion: 'Mendoza, Argentina',
-      experiencia: '2 Años de experiencia en AWS y Docker'
-    },
-];
+import { findAllUsers, findUserById, createUser, verifyCredentials } from '../services/user.service.js'; // Importa el servicio para obtener usuarios 
 
 // Controlador para obtener todos los usuarios
-export const getUsers = async(req, res) => {
-    res.status(200).json(users);
+export const getAllUsers = (req, res) => {
+    try {
+        const users = findAllUsers();
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener los usuarios' });
+    }
 }
 
 // Controlador para obtener un usuario por ID
-export const getUserById = async(req, res) => {
-    const {id} = req.params;
-    const user = users.find(u => u.id == id);
-    if(user){
-      res.status(200).json(user);
-    } else {
-      res.status(404).json({ error: 'Usuario no encontrado' });
-    }
+export const getUserById = (req, res) => {
+  try {
+      const userId = findUserById(req.params.id);
+
+      if (!userId) {
+          return res.status(404).json({ error: 'Usuario no encontrado' });
+      }
+      res.status(200).json(userId);
+  } catch (error) {
+      res.status(500).json({ error: 'Error al obtener el usuario' });
+  }
 }
+
+// Controlador para crear un nuevo usuario
+export const createUserController = async(req, res) => {
+  try {
+      const newUser = await createUser(req.body);
+      res.status(201).json(newUser);
+  } catch (error) {
+      res.status(400).json({ error: error.message });
+  }
+}
+
+// Controlador para verificar credenciales de usuario
+export const loginUserController = async(req, res) => {
+  try {
+      const { email, password } = req.body;
+      const user = await verifyCredentials(email, password);
+      res.status(200).json({ message: 'Inicio de sesión exitoso', user });
+  } catch (error) {
+      res.status(401).json({ error: error.message });
+  }
+}
+
+
