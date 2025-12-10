@@ -1,6 +1,8 @@
 // Creo la ruta
 import { Router } from 'express'; // Importo el Router de express
-import { getAllUsers, getUserById, createUserController} from '../controller/users.controller.js'; // Importo el controlador para obtener usuarios
+import { getAllUsers, getUserById, createUserController, loginUserController, updateUserController } from '../controller/users.controller.js'; // Importo el controlador para obtener usuarios
+//import { authHeader, soloAdmins } from '../middleware/auth.js'; // Importo el middleware de autenticación
+import { basicAuth, checkAdmin } from '../middleware/authBasic.js'; // Importo el middleware de autenticación Basic
 
 const router = Router();
 
@@ -99,13 +101,8 @@ router.get('/', getAllUsers); // Defino una ruta GET para obtener todos los usua
 });
 */
 router.get('/:id', getUserById); // Defino una ruta GET para obtener un usuario por ID
-router.post('/', createUserController); // Defino una ruta POST para crear un nuevo usuario
-router.put('/:id', (req, res) => { // Defino una ruta PUT para actualizar un usuario por ID
-  res.send(`<h2>Actualizar el usuario con ID ${req.params.id}</h2>`);
-});
-
-router.delete('/:id', (req, res) => { // Defino una ruta DELETE para eliminar un usuario por ID
-  res.send(`<h2>Eliminar el usuario con ID ${req.params.id}</h2>`);
-});
+router.post('/', basicAuth, checkAdmin, createUserController); // Defino una ruta POST para crear un nuevo usuario
+router.post('/login', loginUserController); // Defino una ruta POST para el login de usuario
+router.put('/:id', updateUserController); // Defino una ruta PUT para actualizar un usuario por ID
 
 export default router;

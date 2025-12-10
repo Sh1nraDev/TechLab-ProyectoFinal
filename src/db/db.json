@@ -1,0 +1,78 @@
+{
+    "users": [
+      
+    ],
+
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Mouse Logitech G203",
+            "precio": 15000,
+            "stock": 10,
+            "categoria": "Periféricos"
+        },
+        {
+            "id": 2,
+            "nombre": "Teclado Mecánico Redragon Kumara",
+            "precio": 28000,
+            "stock": 7,
+            "categoria": "Periféricos"
+        },
+        {
+            "id": 3,
+            "nombre": "Auriculares HyperX Cloud Stinger",
+            "precio": 42000,
+            "stock": 5,
+            "categoria": "Audio"
+        },
+        {
+            "id": 4,
+            "nombre": "Monitor Samsung 24\" FHD",
+            "precio": 185000,
+            "stock": 3,
+            "categoria": "Monitores"
+        },
+        {
+            "id": 5,
+            "nombre": "Disco SSD Kingston 480GB",
+            "precio": 65000,
+            "stock": 12,
+            "categoria": "Almacenamiento"
+        },
+        {
+            "id": 6,
+            "nombre": "Placa de Video GTX 1660 Super",
+            "precio": 320000,
+            "stock": 2,
+            "categoria": "Hardware"
+        },
+        {
+            "id": 7,
+            "nombre": "Memoria RAM Corsair 16GB DDR4",
+            "precio": 78000,
+            "stock": 8,
+            "categoria": "Hardware"
+        },
+        {
+            "id": 8,
+            "nombre": "Fuente EVGA 600W 80+ Bronze",
+            "precio": 95000,
+            "stock": 4,
+            "categoria": "Hardware"
+        },
+        {
+            "id": 9,
+            "nombre": "Webcam Logitech C920",
+            "precio": 110000,
+            "stock": 6,
+            "categoria": "Video"
+        },
+        {
+            "id": 10,
+            "nombre": "Parlantes Edifier R1280DB",
+            "precio": 145000,
+            "stock": 5,
+            "categoria": "Audio"
+        }
+    ]
+}

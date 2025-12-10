@@ -1,4 +1,4 @@
-import { findAllUsers, findUserById, createUser, verifyCredentials } from '../services/user.service.js'; // Importa el servicio para obtener usuarios 
+import { findAllUsers, findUserById, createUser, verifyCredentials, updateUser } from '../services/user.service.js'; // Importa el servicio para obtener usuarios 
 
 // Controlador para obtener todos los usuarios
 export const getAllUsers = (req, res) => {
@@ -26,12 +26,25 @@ export const getUserById = (req, res) => {
 
 // Controlador para crear un nuevo usuario
 export const createUserController = async(req, res) => {
-  try {
+    try {
       const newUser = await createUser(req.body);
       res.status(201).json(newUser);
-  } catch (error) {
+    } catch (error) {
       res.status(400).json({ error: error.message });
-  }
+    }
+}
+
+// Controlador para actualizar un usuario
+export const updateUserController = async(req, res) => {
+  try {
+        const updatedUser = await updateUser(req.params.id, req.body);
+        if (!updatedUser) {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al actualizar el usuario' });
+    }
 }
 
 // Controlador para verificar credenciales de usuario
@@ -44,5 +57,3 @@ export const loginUserController = async(req, res) => {
       res.status(401).json({ error: error.message });
   }
 }
-
-

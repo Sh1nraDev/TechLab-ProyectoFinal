@@ -1,0 +1,38 @@
+const users = [
+    {
+      id: 1,
+      name: 'Alice',
+      email: 'alice@example.com',
+      password: bcrypt.hashSync('password123', 10), // Contraseña encriptada
+      rol: 'Frontend Developer',
+      ubicacion: 'Buenos Aires, Argentina',
+      experiencia: '5 Años de experiencia en React y Tailwind CSS'
+    },
+    {
+      id: 2,
+      name: 'Bob',
+      email: 'bob@example.com',
+      password: bcrypt.hashSync('password123', 10), // Contraseña encriptada
+      rol: 'Backend Developer',
+      ubicacion: 'Rosario, Argentina',
+      experiencia: '3 Años de experiencia en Node.js y Express'
+    },
+    {
+      id: 3,
+      name: 'Charlie',
+      email: 'charlie@example.com',
+      password: bcrypt.hashSync('password123', 10), // Contraseña encriptada
+      rol: 'Full Stack Developer',
+      ubicacion: 'Córdoba, Argentina',
+      experiencia: '2 Años de experiencia en React y Node.js'
+    },
+    {
+      id: 4,
+      name: 'David',
+      email: 'david@example.com',
+      password: bcrypt.hashSync('password123', 10), // Contraseña encriptada
+      rol: 'DevOps Engineer',
+      ubicacion: 'Mendoza, Argentina',
+      experiencia: '2 Años de experiencia en AWS y Docker'
+    },
+];
